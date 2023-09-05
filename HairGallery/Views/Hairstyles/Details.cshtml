@@ -1,0 +1,66 @@
+﻿@model HairGallery.Models.Hairstyle
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hairstyle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SalonBuildings.OwnerEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalonBuildings.OwnerEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceTypes.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceTypes.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HairstyleDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HairstyleDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HairstylePicture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HairstylePicture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HairstylePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HairstylePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HairstyleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

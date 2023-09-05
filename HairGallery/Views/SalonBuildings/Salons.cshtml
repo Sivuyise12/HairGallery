@@ -1,0 +1,51 @@
+﻿@model IEnumerable<HairGallery.Models.SalonBuilding>
+
+@{
+    ViewBag.Title = "SalonBooking";
+}
+<h2 align="center">Salon</h2>
+<div class="row">
+    <br />
+    <div>
+        <table class="table">
+            <div class="w3-container">
+                @foreach (var item in Model)
+                {
+
+
+                    <div class="col-10 mx-auto my-3 col-md-6 col-lg-4">
+                        <div class="card car-card">
+                            <a><img src="data:image/png;base64,@Convert.ToBase64String(item.BuildingPic, 0, item.BuildingPic.Length)" style="width: 300px; height: 200px" alt="" /></a>
+
+
+                            @*<img src="~/img/the_car.png" class="card-img-top car-img" alt="" width="200" height="200" />*@
+                            @*<img src="Iimages/Isuzu.jpg" class="card-img-top car-img" alt="">*@
+                            <!--card body-->
+                            <h5 class="car-value align-self-centre py-2 px3">
+                                <b>Salon Name - <span class="car-price">@Html.DisplayFor(modelItem => item.SalonName)</span></b>
+                            </h5>
+                            <div class="card-body">
+                                <div class="car-info d-flex justify-content-between">
+                                    <!--first  flex child-->
+                                    <h5 class="car-value align-self-centre py-2 px3">
+                                        Salon Description - <span class="car-price">@Html.DisplayFor(modelItem => item.BuildingDescription)</span>
+                                    </h5>
+                                    <!--second  flex child-->
+                                    <h5 class="car-value align-self-centre py-2 px3">
+                                        Salon Address - <span class="car-price">@Html.DisplayFor(modelItem => item.Address)</span>
+                                    </h5>
+                                </div>
+                            </div>
+                            <!--end of card-->
+                            @Html.ActionLink("View Salon", "ServiceTypes", "ServiceTypes", new { id = item.SalonBuildingId }, new { @class = "btn btn-success" })
+
+                        </div>
+                        <hr />
+                    </div>
+                }
+            </div>
+
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<HairGallery.Models.Hairstyle>
+
+@{
+    ViewBag.Title = "RoomBooking";
+}
+<br />
+<h2 align="center">Salon Appointment Booking</h2>
+<div class="row">
+    @{foreach (var item in Model)
+        {
+            <br />
+            <div class="col-12 col-md-6 col-lg-4">
+                <!-- Use columns to make items display side by side on larger screens -->
+                <div class="card car-card">
+                    <a><img src="data:image/png;base64,@Convert.ToBase64String(item.HairstylePicture, 0, item.HairstylePicture.Length)" style="width: 300px; height: 200px" alt="" /></a>
+                    <!--card body-->
+                    <div class="card-body">
+                        <div class="car-info d-flex justify-content-between">
+                            <!--first flex child-->
+                            <h5 class="car-value align-self-center py-2 px-3">
+                                <!-- Corrected the class name -->
+                                Hairstyle Description - <span class="car-price">@Html.DisplayFor(modelItem => item.HairstyleDescription)</span>
+                            </h5>
+                            <!--second flex child-->
+                            <h5 class="car-value align-self-center py-2 px-3">
+                                <!-- Corrected the class name -->
+                                Hairstyle Name - <span class="car-price">@Html.DisplayFor(modelItem => item.HairstyleName)</span>
+                            </h5>
+                            <h5 class="car-value align-self-center py-2 px-3">
+                                <!-- Corrected the class name -->
+                                Hairstyle Price - <span class="car-price">@Html.DisplayFor(modelItem => item.HairstylePrice)</span>
+                            </h5>
+                        </div>
+                    </div>
+                    <!--end of card-->
+                    @Html.ActionLink("Make Appointment", "Create", "BookAppointments", new { id = item.HairstyleId }, new { @class = "btn btn-info" })
+                </div>
+                <hr />
+            </div>
+        }
+    }
+</div>
+
